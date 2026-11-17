@@ -1,0 +1,6 @@
+# Prevent code execution in upload directory
+<FilesMatch "\.(php|phar|phtml|pl|py|jsp|asp|sh|cgi)$">
+  Require all denied
+</FilesMatch>
+Options -ExecCGI -Indexes
+AddType text/plain .php .phtml .phar
