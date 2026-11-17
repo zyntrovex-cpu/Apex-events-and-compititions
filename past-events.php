@@ -136,15 +136,17 @@ include __DIR__ . '/includes/header.php';
 </section>
 
 <?php if ($detail): ?>
-<dialog id="dlg" open aria-labelledby="dlg-title">
-  <div class="dlg-head">
-    <div>
-      <div class="text-slate" style="font-size:13.5px"><?= e($detail['category']) ?> · <?= e(format_date($detail['event_date'])) ?> · <?= e($detail['institution']) ?>, <?= e($detail['city']) ?></div>
-      <h2 class="disp" id="dlg-title"><?= e($detail['name']) ?></h2>
+<div class="modal" role="dialog" aria-modal="true" aria-labelledby="dlg-title" id="eventModal">
+  <a class="modal-backdrop" href="past-events.php" aria-label="Close dialog" tabindex="-1"></a>
+  <div class="modal-box">
+    <div class="dlg-head">
+      <div>
+        <div class="text-slate" style="font-size:13.5px"><?= e($detail['category']) ?> · <?= e(format_date($detail['event_date'])) ?> · <?= e($detail['institution']) ?>, <?= e($detail['city']) ?></div>
+        <h2 class="disp" id="dlg-title"><?= e($detail['name']) ?></h2>
+      </div>
+      <a class="x-close" href="past-events.php" aria-label="Close" style="text-decoration:none;display:inline-flex;align-items:center;justify-content:center">×</a>
     </div>
-    <a class="x-close" href="past-events.php" aria-label="Close" style="text-decoration:none;display:inline-flex;align-items:center;justify-content:center">×</a>
-  </div>
-  <div class="dlg-body">
+    <div class="dlg-body">
     <?php if ($detail['summary']): ?><p class="text-slate" style="line-height:1.6;margin:0"><?= nl2br(e($detail['summary'])) ?></p><?php endif; ?>
     <?php if ($detail['brief']): ?><div><b>The brief:</b> <span class="text-slate"><?= e($detail['brief']) ?></span></div><?php endif; ?>
     <?php if ($detail['what_we_did']): ?><div><b>What we did:</b> <span class="text-slate"><?= e($detail['what_we_did']) ?></span></div><?php endif; ?>
@@ -171,11 +173,21 @@ include __DIR__ . '/includes/header.php';
     <?php if ($detail['quote_text']): ?>
       <blockquote style="margin:0;background:var(--navy);color:var(--ivory);border-radius:14px;padding:20px 22px;font-size:16px;line-height:1.55">“<?= e($detail['quote_text']) ?>”<cite style="display:block;margin-top:10px;color:var(--mist);font-style:normal;font-size:13.5px">— <?= e($detail['quote_by']) ?></cite></blockquote>
     <?php endif; ?>
-    <?php if ($detail['video_url']): ?>
-      <a class="btn btn-navy" href="<?= e($detail['video_url']) ?>" target="_blank" rel="noopener" style="align-self:flex-start">Watch the highlights video</a>
-    <?php endif; ?>
+      <?php if ($detail['video_url']): ?>
+        <a class="btn btn-navy" href="<?= e($detail['video_url']) ?>" target="_blank" rel="noopener" style="align-self:flex-start">Watch the highlights video</a>
+      <?php endif; ?>
+    </div>
   </div>
-</dialog>
+</div>
+<script>
+  // Scroll lock + Escape to close
+  (function(){
+    document.documentElement.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden';
+    function close(){ window.location.href = 'past-events.php'; }
+    document.addEventListener('keydown', function(e){ if (e.key === 'Escape') close(); });
+  })();
+</script>
 <?php endif; ?>
 
 <?php include __DIR__ . '/includes/footer.php'; ?>

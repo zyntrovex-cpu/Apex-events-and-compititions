@@ -56,11 +56,48 @@ body.admin{background:#F2EFE6;color:var(--navy);margin:0}
 .login-card h1{font-family:Archivo,sans-serif;font-size:28px;margin:0 0 6px}
 .login-card .sub{color:var(--slate);font-size:14px;margin:0 0 24px}
 
-@media (max-width:860px){
+.admin-menu-toggle{display:none;position:fixed;top:14px;left:14px;z-index:60;background:var(--navy);color:var(--gold);border:0;border-radius:10px;width:44px;height:44px;align-items:center;justify-content:center;box-shadow:var(--shadow)}
+.admin-backdrop{display:none;position:fixed;inset:0;background:rgba(14,26,43,.6);z-index:40;cursor:pointer}
+
+@media (max-width:980px){
   .admin-shell{grid-template-columns:1fr}
-  .admin-side{position:static;height:auto}
+  .admin-menu-toggle{display:inline-flex}
+  .admin-topbar{padding-left:70px}
+  .admin-side{
+    position:fixed;top:0;left:0;height:100vh;height:100dvh;
+    width:min(280px,82vw);z-index:50;
+    -webkit-transform:translateX(-100%);transform:translateX(-100%);
+    -webkit-transition:transform .25s ease;transition:transform .25s ease;
+    overflow-y:auto;
+  }
+  body.admin-nav-open .admin-side{-webkit-transform:translateX(0);transform:translateX(0)}
+  body.admin-nav-open .admin-backdrop{display:block}
   .admin-content{padding:20px}
 }
+
+@media (max-width:640px){
+  .admin-content{padding:14px}
+  .admin-card{padding:18px}
+  .admin-topbar{padding:12px 14px 12px 64px}
+  .admin-topbar h1{font-size:18px}
+  .admin-topbar .user .avatar{width:34px;height:34px}
+  .admin-topbar .user > div:first-child{display:none}
+  .stat-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .stat{padding:14px 16px}
+  .stat b{font-size:24px}
+  .admin-table{font-size:13px}
+  .admin-table th,.admin-table td{padding:10px 8px}
+  .login-card{padding:28px 22px}
+}
+
+/* Horizontal scroll guard for tables in admin */
+.admin-card{overflow-x:auto;-webkit-overflow-scrolling:touch}
+
+/* Cross-browser form defaults inside admin */
+.form-inline input,.form-inline select,.form-inline textarea{-webkit-appearance:none;appearance:none}
+.form-inline input[type="checkbox"]{-webkit-appearance:checkbox;appearance:checkbox;width:auto;min-height:0;padding:0}
+.form-inline input[type="radio"]{-webkit-appearance:radio;appearance:radio;width:auto;min-height:0;padding:0}
+.form-inline select{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path fill='%235B6576' d='M6 8L0 0h12z'/></svg>");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
 
 .form-inline{display:grid;gap:14px}
 .form-inline label{display:flex;flex-direction:column;gap:5px;font-size:13.5px;font-weight:500}

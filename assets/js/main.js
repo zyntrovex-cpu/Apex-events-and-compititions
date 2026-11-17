@@ -81,12 +81,13 @@
     });
   });
 
-  /* Dialog close on backdrop */
-  document.querySelectorAll('dialog').forEach((dlg) => {
-    dlg.addEventListener('click', (e) => {
-      const r = dlg.getBoundingClientRect();
-      if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) dlg.close();
-    });
+  /* Chip visual state (fallback for :has(input:checked) on older browsers) */
+  document.querySelectorAll('.form .chip').forEach((chip) => {
+    const cb = chip.querySelector('input[type="checkbox"],input[type="radio"]');
+    if (!cb) return;
+    const sync = () => chip.classList.toggle('is-checked', cb.checked);
+    cb.addEventListener('change', sync);
+    sync();
   });
 
   /* Count-up stat animation */
