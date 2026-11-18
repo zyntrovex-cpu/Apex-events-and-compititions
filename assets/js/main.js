@@ -11,6 +11,21 @@
       nav.setAttribute('data-open', String(!open));
       toggle.setAttribute('aria-expanded', String(!open));
     });
+    // Close on outside click
+    document.addEventListener('click', (e) => {
+      if (nav.getAttribute('data-open') !== 'true') return;
+      if (nav.contains(e.target) || toggle.contains(e.target)) return;
+      nav.setAttribute('data-open', 'false');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+    // Close on Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && nav.getAttribute('data-open') === 'true') {
+        nav.setAttribute('data-open', 'false');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.focus();
+      }
+    });
   }
 
   /* Reveal on scroll */

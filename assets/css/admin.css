@@ -3,8 +3,21 @@
   --sidebar: 260px;
 }
 body.admin{background:#F2EFE6;color:var(--navy);margin:0}
-.admin-shell{display:grid;grid-template-columns:var(--sidebar) 1fr;min-height:100vh}
-.admin-side{background:var(--navy);color:var(--ivory);padding:24px 16px;position:sticky;top:0;height:100vh;overflow-y:auto}
+/* Sidebar uses position:fixed so it always fills 100vh independently of
+   the grid, the scroll position, or any ancestor's overflow property. */
+.admin-shell{display:block;min-height:100vh}
+.admin-side{
+  background:var(--navy);color:var(--ivory);
+  padding:24px 16px;
+  position:fixed;top:0;left:0;
+  width:var(--sidebar);
+  height:100vh;height:100dvh;
+  overflow-y:auto;overflow-x:hidden;
+  z-index:30;
+  -webkit-overflow-scrolling:touch;
+  display:flex;flex-direction:column;
+}
+.admin-main{margin-left:var(--sidebar);min-height:100vh;display:flex;flex-direction:column}
 .admin-brand{display:flex;align-items:center;gap:10px;padding:0 10px 22px;border-bottom:1px solid var(--edge);color:var(--ivory);text-decoration:none}
 .admin-brand .name{font-family:Archivo,sans-serif;font-stretch:125%;font-weight:800;font-size:22px;letter-spacing:.08em;line-height:.9;color:var(--ivory)}
 .admin-brand .sub{font-family:Archivo,sans-serif;font-stretch:110%;font-weight:600;font-size:7px;letter-spacing:.34em;color:var(--gold);margin-top:4px}
@@ -60,15 +73,14 @@ body.admin{background:#F2EFE6;color:var(--navy);margin:0}
 .admin-backdrop{display:none;position:fixed;inset:0;background:rgba(14,26,43,.6);z-index:40;cursor:pointer}
 
 @media (max-width:980px){
-  .admin-shell{grid-template-columns:1fr}
+  .admin-shell{display:block}
+  .admin-main{margin-left:0}
   .admin-menu-toggle{display:inline-flex}
   .admin-topbar{padding-left:70px}
   .admin-side{
-    position:fixed;top:0;left:0;height:100vh;height:100dvh;
     width:min(280px,82vw);z-index:50;
     -webkit-transform:translateX(-100%);transform:translateX(-100%);
     -webkit-transition:transform .25s ease;transition:transform .25s ease;
-    overflow-y:auto;
   }
   body.admin-nav-open .admin-side{-webkit-transform:translateX(0);transform:translateX(0)}
   body.admin-nav-open .admin-backdrop{display:block}

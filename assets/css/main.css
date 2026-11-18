@@ -11,11 +11,15 @@
   --gold:   #D4A63A;
   --gold-2: #E3B54A;
   --dgold:  #8A6516;
+  --blue:   #2563EB;
+  --blue-dark: #1D4ED8;
+  --blue-soft: #EFF4FF;
   --ivory:  #F6F3EC;
   --white:  #FFFFFF;
   --slate:  #5B6576;
   --mist:   #B9C2D0;
   --line:   #D9D3C4;
+  --line-cool: #E5E7EB;
   --green:  #1F6B45;
   --greenbg:#E3F1E8;
   --red:    #B3261E;
@@ -25,6 +29,7 @@
   --shadow-sm: 0 2px 10px rgba(14,26,43,.06);
   --shadow:    0 12px 28px rgba(14,26,43,.08);
   --shadow-lg: 0 24px 60px rgba(14,26,43,.14);
+  --shadow-header: 0 1px 2px rgba(15,23,42,.04), 0 2px 8px rgba(15,23,42,.06);
   --max: 1240px;
   --transition: .25s cubic-bezier(.2,.8,.2,1);
 }
@@ -59,69 +64,91 @@ p{margin:0 0 1em}
 .section-navy .eyebrow{color:var(--gold)}
 .section-panel{background:#fff}
 
-/* ===================== HEADER / NAV ===================== */
+/* ===================== HEADER / NAV (compact white) ===================== */
 .site-header{
-  background:linear-gradient(180deg,var(--navy) 0%, #0A1422 100%);
-  color:var(--ivory);
+  background:#fff;
+  color:var(--navy);
   position:sticky;top:0;z-index:100;
-  border-bottom:3px solid var(--gold);
-  box-shadow:0 4px 20px rgba(14,26,43,.35);
+  border-bottom:1px solid var(--line-cool);
+  box-shadow:var(--shadow-header);
 }
 .site-header .bar{
   max-width:var(--max);margin:0 auto;
-  padding:22px clamp(16px,3vw,28px);
-  display:flex;align-items:center;justify-content:space-between;gap:20px;
+  padding:10px clamp(16px,3vw,24px);
+  display:flex;flex-wrap:nowrap;
+  align-items:center;justify-content:space-between;
+  gap:16px;min-height:64px;
 }
-.brand{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--ivory)}
-.brand:hover{color:var(--ivory)}
-.brand .name{font-family:Archivo,sans-serif;font-stretch:125%;font-weight:800;font-size:30px;letter-spacing:.08em;line-height:.9}
-.brand .sub{font-family:Archivo,sans-serif;font-stretch:110%;font-weight:600;font-size:8.5px;letter-spacing:.34em;margin-top:6px;color:var(--gold)}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--navy);flex-shrink:0}
+.brand:hover{color:var(--navy)}
+.brand .name{font-family:Archivo,sans-serif;font-stretch:125%;font-weight:800;font-size:22px;letter-spacing:.08em;line-height:.9;color:var(--navy)}
+.brand .sub{font-family:Archivo,sans-serif;font-stretch:110%;font-weight:600;font-size:7px;letter-spacing:.3em;margin-top:4px;color:var(--dgold);white-space:nowrap}
 .brand .mark{display:flex;align-items:center}
-.brand .mark svg{width:48px;height:auto}
+.brand .mark svg{width:36px;height:auto;display:block}
+/* Re-colour the inline logo so it reads on white (diamond stays gold, "A" turns navy) */
+.site-header .brand .mark svg path:nth-of-type(1){fill:var(--gold)}
+.site-header .brand .mark svg path:nth-of-type(2){fill:var(--navy)}
 
-.nav-main{display:flex;flex-wrap:wrap;gap:4px;align-items:center}
+.nav-main{
+  display:flex;flex-wrap:nowrap;
+  gap:2px;align-items:center;
+  overflow:visible;
+}
 .nav-main a{
-  color:var(--ivory);text-decoration:none;
-  font-size:15px;font-weight:500;
-  padding:11px 16px;border-radius:999px;
-  -webkit-transition:background-color .25s ease,color .25s ease;
-  transition:background-color .25s ease,color .25s ease;
+  color:var(--navy);text-decoration:none;
+  font-size:14px;font-weight:500;
+  padding:8px 13px;border-radius:8px;
+  -webkit-transition:background-color .2s ease,color .2s ease;
+  transition:background-color .2s ease,color .2s ease;
   white-space:nowrap;
 }
-.nav-main a:hover,.nav-main a[aria-current="page"]{background:var(--panel);color:var(--gold)}
+.nav-main a:hover{background:var(--blue-soft);color:var(--blue-dark)}
+.nav-main a[aria-current="page"]{color:var(--blue-dark);background:var(--blue-soft);font-weight:600}
 .nav-main a.cta{
-  background:var(--gold);color:var(--navy);
-  font-weight:700;
+  background:var(--blue);color:#fff !important;
+  font-weight:600;
+  padding:10px 20px;
   margin-left:8px;
-  box-shadow:0 2px 8px rgba(212,166,58,.3);
+  border-radius:8px;
+  box-shadow:0 1px 2px rgba(37,99,235,.2);
+  -webkit-transition:background-color .2s ease,box-shadow .2s ease,transform .2s ease;
+  transition:background-color .2s ease,box-shadow .2s ease,transform .2s ease;
 }
-.nav-main a.cta:hover{background:var(--gold-2);color:var(--navy);box-shadow:0 4px 14px rgba(212,166,58,.4)}
+.nav-main a.cta:hover{background:var(--blue-dark);color:#fff;box-shadow:0 4px 14px rgba(37,99,235,.35);transform:translateY(-1px)}
 
-.menu-toggle{display:none;background:transparent;color:var(--ivory);border:1.5px solid var(--edge);border-radius:12px;padding:10px 14px;align-items:center;gap:8px;font-weight:600}
+.menu-toggle{
+  display:none;background:transparent;color:var(--navy);
+  border:1.5px solid var(--line-cool);border-radius:10px;
+  padding:9px 12px;align-items:center;gap:8px;font-weight:600;font-size:14px;
+  cursor:pointer;
+}
 .menu-toggle svg{display:block}
-.menu-toggle:hover{background:var(--panel)}
+.menu-toggle:hover{background:var(--blue-soft);color:var(--blue-dark);border-color:var(--blue)}
 
-@media (max-width:980px){
+/* Breakpoint: switch to hamburger when nav gets tight */
+@media (max-width:1100px){
   .menu-toggle{display:inline-flex}
   .nav-main{
     position:absolute;top:100%;left:0;right:0;
-    background:var(--panel);
+    background:#fff;
     flex-direction:column;align-items:stretch;gap:2px;
-    padding:12px 16px 20px;
+    padding:10px 14px 18px;
     max-height:0;overflow:hidden;
     -webkit-transition:max-height .3s ease;
     transition:max-height .3s ease;
-    box-shadow:var(--shadow-lg);
-    border-top:1px solid var(--edge);
+    box-shadow:0 14px 30px rgba(15,23,42,.1);
+    border-top:1px solid var(--line-cool);
+    border-bottom:1px solid var(--line-cool);
   }
   .nav-main[data-open="true"]{max-height:80vh;overflow-y:auto}
-  .nav-main a{padding:14px 16px;border-radius:12px;font-size:16px}
-  .nav-main a.cta{margin:10px 0 0}
+  .nav-main a{padding:12px 14px;border-radius:10px;font-size:15px}
+  .nav-main a.cta{margin:8px 0 0;padding:12px 20px;justify-content:center;text-align:center}
 }
-@media (max-width:480px){
-  .brand .name{font-size:24px}
-  .brand .sub{font-size:7.5px}
-  .brand .mark svg{width:40px}
+@media (max-width:420px){
+  .brand .name{font-size:19px}
+  .brand .sub{font-size:6px}
+  .brand .mark svg{width:30px}
+  .site-header .bar{min-height:58px;padding:8px 14px}
 }
 
 /* ===================== HERO ===================== */
@@ -138,6 +165,10 @@ p{margin:0 0 1em}
 .btn:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
 .btn-gold{background:var(--gold);color:var(--navy);border-color:var(--gold)}
 .btn-gold:hover{background:var(--gold-2);color:var(--navy);transform:translateY(-1px);box-shadow:0 10px 22px rgba(212,166,58,.25)}
+.btn-primary,.btn-blue{background:var(--blue);color:#fff !important;border-color:var(--blue)}
+.btn-primary:hover,.btn-blue:hover{background:var(--blue-dark);border-color:var(--blue-dark);color:#fff;transform:translateY(-1px);box-shadow:0 10px 22px rgba(37,99,235,.28)}
+.btn-blue-outline{background:transparent;color:var(--blue);border-color:var(--blue)}
+.btn-blue-outline:hover{background:var(--blue);color:#fff}
 .btn-navy{background:var(--navy);color:var(--ivory);border-color:var(--navy)}
 .btn-navy:hover{background:var(--panel);color:var(--ivory)}
 .btn-outline{background:transparent;color:var(--navy);border-color:var(--navy)}
@@ -392,8 +423,12 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 
 /* ===================== CROSS-BROWSER + RESPONSIVE GUARDS ===================== */
 
-/* Prevent horizontal scroll everywhere */
-html,body{max-width:100%;overflow-x:hidden}
+/* Prevent horizontal scroll without breaking position:sticky.
+   `overflow-x:clip` doesn't create a scroll container (so sticky still works).
+   Older Safari (<16) falls back to the `hidden` first declaration, which is a
+   mild regression (sticky won't pin) but is acceptable. */
+html,body{max-width:100%}
+body{overflow-x:hidden;overflow-x:clip}
 
 /* Images and media never overflow their container */
 img,video,iframe,svg{max-width:100%;height:auto}
