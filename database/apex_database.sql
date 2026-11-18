@@ -554,27 +554,28 @@ SET FOREIGN_KEY_CHECKS = 1;
 -- INITIAL DATA
 -- =====================================================================
 
--- Default admin: email admin@apex.local · password: ApexAdmin!2026
+-- Default admin: email admin@apexcompetitions.org · password: ApexAdmin!2026
 -- (bcrypt hash below — change the password from Dashboard > Settings on first login)
 INSERT INTO `admins` (`name`,`email`,`password_hash`,`role`,`is_active`) VALUES
-('APEX Administrator','admin@apex.local','$2y$10$8tqTIjVneRKaMLnt0noajep28F1cj20e32dfO2RbgM2sKzS7YCWDm','super_admin',1);
+('APEX Administrator','admin@apexcompetitions.org','$2y$10$8tqTIjVneRKaMLnt0noajep28F1cj20e32dfO2RbgM2sKzS7YCWDm','super_admin',1);
 
 -- Site settings
 INSERT INTO `site_settings` (`setting_key`,`setting_value`,`setting_type`,`setting_group`,`label`,`sort_order`) VALUES
 ('site_name','APEX Events & Competitions','text','general','Site name',1),
 ('site_tagline','Creating Experiences. Managing Competitions. Celebrating Excellence.','text','general','Tagline',2),
 ('site_description','APEX Events & Competitions plans and manages events and competitions for schools, colleges, universities and educational institutions — inter-school and inter-college competitions, sports championships, ceremonies, festivals, exhibitions and seminars.','textarea','general','Site description',3),
-('contact_email','info@apex.local','email','contact','Contact email',10),
+('contact_email','info@apexcompetitions.org','email','contact','Contact email',10),
 ('contact_phone','+92 XXX XXXXXXX','text','contact','Contact phone',11),
 ('contact_whatsapp','+92 XXX XXXXXXX','text','contact','WhatsApp number',12),
 ('contact_address','[Street Address, City]','textarea','contact','Office address',13),
 ('contact_hours','Monday – Saturday, 9:00 am – 6:00 pm','text','contact','Office hours',14),
-('admin_notify_email','admin@apex.local','email','notifications','Admin notification email',20),
+('site_url','https://apexcompetitions.org','url','general','Website URL',4),
+('admin_notify_email','admin@apexcompetitions.org','email','notifications','Admin notification email',20),
 ('smtp_host','','text','email','SMTP host',30),
 ('smtp_port','587','number','email','SMTP port',31),
 ('smtp_user','','text','email','SMTP username',32),
 ('smtp_pass','','text','email','SMTP password',33),
-('smtp_from','info@apex.local','email','email','From email',34),
+('smtp_from','info@apexcompetitions.org','email','email','From email',34),
 ('smtp_from_name','APEX Events & Competitions','text','email','From name',35),
 ('smtp_encryption','tls','text','email','Encryption (tls/ssl/none)',36),
 ('response_time','one working day','text','general','Response time',40),

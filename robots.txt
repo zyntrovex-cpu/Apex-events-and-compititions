@@ -7,4 +7,4 @@ Disallow: /database/
 Disallow: /uploads/applications/
 Allow: /
 
-Sitemap: /sitemap.xml
+Sitemap: https://apexcompetitions.org/sitemap.xml
