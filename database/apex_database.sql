@@ -1,15 +1,21 @@
 -- =====================================================================
 -- APEX Events & Competitions — Complete Database Schema
 -- MySQL 5.7+ / MariaDB 10.3+ · InnoDB · utf8mb4
--- Import this file through phpMyAdmin or: mysql -u user -p apex_db < apex_database.sql
+-- For Hostinger / shared hosting:
+--   1. Create the database "u599227834_apex_db" in hPanel first.
+--   2. Open phpMyAdmin, select that database, click Import, choose this file.
+--   3. The CREATE DATABASE line below is skipped automatically on Hostinger
+--      because the DB already exists — all tables will be created inside it.
+--
+-- For local XAMPP: just import this file through phpMyAdmin.
 -- =====================================================================
 
 SET FOREIGN_KEY_CHECKS = 0;
 SET NAMES utf8mb4;
 SET time_zone = '+00:00';
 
-CREATE DATABASE IF NOT EXISTS `apex_db` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE `apex_db`;
+CREATE DATABASE IF NOT EXISTS `u599227834_apex_db` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE `u599227834_apex_db`;
 
 -- =====================================================================
 -- Admins & Access Control
