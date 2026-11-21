@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/config/app.php';
+freeze_if_minimal();
 
 $slug = $_GET['competition'] ?? '';
 $comp = null;

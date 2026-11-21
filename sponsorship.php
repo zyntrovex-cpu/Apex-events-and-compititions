@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/config/app.php';
+freeze_if_minimal();
 
 $pageTitle = 'Sponsor APEX Championships | Sponsorship Opportunities';
 $pageDescription = 'Sponsor APEX championships, cups and leagues — title, gold, silver and category sponsorship tiers for schools, colleges and universities.';

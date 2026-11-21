@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/config/app.php';
+freeze_if_minimal();
 
 $pageTitle = 'School & College Event Management Services | APEX';
 $pageDescription = 'Academic competitions, sports tournaments, annual days, convocations, exhibitions, cultural festivals and full event production for educational institutions.';

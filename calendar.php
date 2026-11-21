@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/config/app.php';
+freeze_if_minimal();
 
 $pageTitle = 'APEX Calendar | Upcoming Competitions';
 $pageDescription = 'Browse upcoming APEX competitions and championships by date, category and city.';

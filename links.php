@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/config/app.php';
+freeze_if_minimal();
 
 $pageTitle = 'APEX Links | All APEX Pages';
 $pageDescription = 'Quick access to every APEX page — Calendar, Past Events, Partners, Sponsorship, APEX Card, Request a Proposal.';

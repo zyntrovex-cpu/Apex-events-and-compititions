@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/config/app.php';
+freeze_if_minimal();
 
 $pageTitle = 'School Event & Competition Management | APEX';
 $pageDescription = 'Annual days, sports days, prize distributions, quiz and spelling bee competitions and inter-school events — safe, organised and stress-free.';

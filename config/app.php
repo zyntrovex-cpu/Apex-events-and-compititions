@@ -49,6 +49,7 @@ if (session_status() === PHP_SESSION_NONE) {
 require_once __DIR__ . '/database.php';
 require_once dirname(__DIR__) . '/includes/functions.php';
 require_once dirname(__DIR__) . '/includes/csrf.php';
+require_once dirname(__DIR__) . '/includes/freeze.php';
 
 define('APP_ROOT', dirname(__DIR__));
 define('ASSET_PATH', 'assets');

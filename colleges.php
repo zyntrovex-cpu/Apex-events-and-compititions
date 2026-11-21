@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/config/app.php';
+freeze_if_minimal();
 
 $pageTitle = 'College & University Event Management | APEX';
 $pageDescription = 'Convocations, orientation weeks, inter-university championships, debates, MUNs, hackathons and festivals managed by APEX.';

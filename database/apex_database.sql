@@ -579,22 +579,24 @@ INSERT INTO `site_settings` (`setting_key`,`setting_value`,`setting_type`,`setti
 ('smtp_from_name','APEX Events & Competitions','text','email','From name',35),
 ('smtp_encryption','tls','text','email','Encryption (tls/ssl/none)',36),
 ('response_time','one working day','text','general','Response time',40),
+('site_mode','minimal','text','general','Site mode (minimal / full)',5),
 ('apex_card_renewal','12 months','text','card','APEX Card validity',50),
 ('digital_card_days','2','text','card','Digital card arrival (days)',51),
 ('printed_card_days','7–10','text','card','Printed card arrival (days)',52);
 
--- Navigation (header)
+-- Navigation (header) — only Home, Competition, About, Contact are active in minimal mode.
+-- The others are kept (is_active=0) so they can be restored when site_mode is flipped to 'full'.
 INSERT INTO `navigation_items` (`label`,`url`,`location`,`sort_order`,`is_active`,`is_cta`) VALUES
 ('Home','index.php','header',1,1,0),
-('Competitions','competitions.php','header',2,1,0),
-('Events','events.php','header',3,1,0),
-('APEX Card','apex-card.php','header',4,1,0),
-('For Schools','schools.php','header',5,1,0),
-('For Colleges','colleges.php','header',6,1,0),
-('Portfolio','portfolio.php','header',7,1,0),
-('About','about.php','header',8,1,0),
-('Contact','contact.php','header',9,1,0),
-('Request a Proposal','contact.php','header',10,1,1),
+('Competition','competitions.php','header',2,1,0),
+('About','about.php','header',3,1,0),
+('Contact','contact.php','header',4,1,0),
+('Events','events.php','header',5,0,0),
+('APEX Card','apex-card.php','header',6,0,0),
+('For Schools','schools.php','header',7,0,0),
+('For Colleges','colleges.php','header',8,0,0),
+('Portfolio','portfolio.php','header',9,0,0),
+('Request a Proposal','contact.php','header',10,0,1),
 ('About Us','about.php','footer_company',1,1,0),
 ('Portfolio','portfolio.php','footer_company',2,1,0),
 ('FAQ','faq.php','footer_company',3,1,0),

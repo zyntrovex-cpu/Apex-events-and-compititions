@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/config/app.php';
+freeze_if_minimal();
 
 $pageTitle = 'Our Partners | APEX Events & Competitions';
 $pageDescription = 'APEX partner institutions, sponsors, APEX Card discount partners, media, venue and production partners.';

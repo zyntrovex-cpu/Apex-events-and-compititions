@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/config/app.php';
+freeze_if_minimal();
 
 $pageTitle = 'Past Events | APEX Events & Competitions';
 $pageDescription = 'Competitions, championships and events organised by APEX for schools, colleges, universities, institutions and companies: results, photos and highlights.';

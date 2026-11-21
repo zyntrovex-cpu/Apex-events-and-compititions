@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/config/app.php';
+freeze_if_minimal();
 
 $pageTitle = 'FAQ | APEX Events & Competitions';
 $pageDescription = 'Budgets, timelines, student safety, judging, certificates and registrations — answers for principals, coordinators and parents.';

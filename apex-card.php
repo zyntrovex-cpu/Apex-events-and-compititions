@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/config/app.php';
+freeze_if_minimal();
 
 $pageTitle = 'APEX Card | Education Discount Card for Students';
 $pageDescription = 'Save on competition fees, tuition, books, courses and more with the APEX Card — for students, families and institutions.';

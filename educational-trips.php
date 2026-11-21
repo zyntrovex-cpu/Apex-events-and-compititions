@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/config/app.php';
+freeze_if_minimal();
 
 $pageTitle = 'Educational Trips & Study Tours | APEX';
 $pageDescription = 'Supervised school picnics, field trips and study tours arranged by APEX for schools and colleges.';

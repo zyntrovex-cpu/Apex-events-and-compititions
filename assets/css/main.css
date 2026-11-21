@@ -291,6 +291,29 @@ p{margin:0 0 1em}
 .footer-bottom a{color:var(--mist)}
 .footer-bottom a:hover{color:var(--gold)}
 
+/* Minimal footer (used in frozen/minimal site mode) */
+.site-footer-min{padding:40px 0 24px}
+.footer-min{display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between;padding-bottom:24px;border-bottom:1px solid var(--edge)}
+.footer-brand-min a{display:inline-flex;align-items:center;gap:10px;color:var(--ivory);text-decoration:none}
+.footer-brand-min a:hover{color:var(--gold)}
+.footer-brand-min .name{font-family:Archivo,sans-serif;font-stretch:125%;font-weight:800;font-size:22px;letter-spacing:.08em;color:var(--ivory);line-height:.9}
+.footer-brand-min .sub{font-family:Archivo,sans-serif;font-stretch:110%;font-weight:600;font-size:7px;letter-spacing:.3em;color:var(--mist);display:block;margin-top:4px}
+.footer-nav-min{display:flex;flex-wrap:wrap;gap:6px}
+.footer-nav-min a{color:var(--mist);font-size:14px;font-weight:500;padding:8px 14px;border-radius:999px;text-decoration:none;transition:background-color .2s ease,color .2s ease}
+.footer-nav-min a:hover{background:var(--panel);color:var(--gold)}
+.footer-contact-min{display:flex;flex-wrap:wrap;gap:14px;align-items:center;color:var(--mist);font-size:14px}
+.footer-contact-min a{color:var(--gold);text-decoration:none}
+.footer-contact-min a:hover{color:var(--ivory)}
+.footer-social-min{display:flex;gap:8px;margin:18px 0 10px;flex-wrap:wrap}
+.footer-social-min a{width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;background:var(--panel);color:var(--mist);border-radius:50%;text-decoration:none;font-size:13px;font-weight:700;transition:background-color .2s ease,color .2s ease}
+.footer-social-min a:hover{background:var(--gold);color:var(--navy)}
+.footer-bottom-min{color:var(--mist);font-size:13px;text-align:center;padding-top:14px}
+@media (max-width:640px){
+  .footer-min{flex-direction:column;align-items:flex-start;gap:16px}
+  .footer-nav-min{width:100%}
+  .footer-nav-min a{padding:8px 12px}
+}
+
 /* ===================== CHIPS / FILTERS ===================== */
 .chip-row{display:flex;flex-wrap:wrap;gap:8px}
 .chip-btn{font:inherit;font-size:14px;font-weight:500;background:#fff;color:var(--navy);border:1.5px solid var(--line);border-radius:999px;padding:10px 16px;min-height:44px;cursor:pointer;transition:all var(--transition)}
