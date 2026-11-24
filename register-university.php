@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/config/app.php';
+freeze_if_minimal();
 
 $pageTitle = 'University League Registration | APEX';
 $pageDescription = 'Register your university for the All Karachi University Table Tennis League 2026: team, singles and mixed doubles. Registration 21–29 November 2026.';

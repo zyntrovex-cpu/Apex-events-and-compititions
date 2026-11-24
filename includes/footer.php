@@ -8,9 +8,9 @@ $socials = social_links_all();
     <div class="footer-min">
       <div class="footer-brand-min">
         <a href="index.php" aria-label="APEX Events &amp; Competitions — home">
-          <svg viewBox="0 0 120 110" width="32" height="30" aria-hidden="true">
-            <path d="M60 0 Q62 12 74 14 Q62 16 60 28 Q58 16 46 14 Q58 12 60 0 Z" fill="#D4A63A"/>
-            <path d="M49 34 L71 34 L112 110 L86 110 L60 62 L34 110 L8 110 Z" fill="#F6F3EC"/>
+          <svg viewBox="0 0 120 100" width="36" height="30" aria-hidden="true">
+            <polygon points="15,95 50,15 85,95" fill="#F6F3EC"/>
+            <polygon points="55,95 85,45 115,95" fill="#F56E2E"/>
           </svg>
           <span>
             <span class="name">APEX</span>

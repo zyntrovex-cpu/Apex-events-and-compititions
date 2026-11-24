@@ -21,13 +21,15 @@ if (!function_exists('site_mode')) {
 
 if (!function_exists('allowed_minimal_pages')) {
     function allowed_minimal_pages(): array {
+        // Only the four core public pages are served in minimal mode.
+        // The old register-university.php / register-college.php pages are
+        // no longer in this list because the new registration process is
+        // a downloadable PDF form on the Competition page.
         return [
             'index.php',
             'competitions.php',
             'about.php',
             'contact.php',
-            'register-university.php',
-            'register-college.php',
         ];
     }
 }

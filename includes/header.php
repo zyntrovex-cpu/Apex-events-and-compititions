@@ -20,12 +20,13 @@ $headerNav = nav_items('header');
 <meta property="og:title" content="<?= e($pageTitle) ?>">
 <meta property="og:description" content="<?= e($pageDescription) ?>">
 <meta property="og:type" content="website">
+<meta property="og:image" content="assets/images/tt-league-poster.jpg">
 <meta name="theme-color" content="#0E1A2B">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/main.css">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 110'%3E%3Cpath d='M60 0 Q62 12 74 14 Q62 16 60 28 Q58 16 46 14 Q58 12 60 0 Z' fill='%23D4A63A'/%3E%3Cpath d='M49 34 L71 34 L112 110 L86 110 L60 62 L34 110 L8 110 Z' fill='%230E1A2B'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 100'%3E%3Cpolygon points='15,95 50,15 85,95' fill='%23F6F3EC'/%3E%3Cpolygon points='55,95 85,45 115,95' fill='%23F56E2E'/%3E%3C/svg%3E">
 </head>
 <body>
 <a href="#main" class="sr-only">Skip to content</a>
@@ -33,10 +34,11 @@ $headerNav = nav_items('header');
 <header class="site-header">
   <div class="bar">
     <a class="brand" href="index.php" aria-label="APEX Events &amp; Competitions — home">
-      <span class="mark">
-        <svg viewBox="0 0 120 110" width="42" height="39" aria-hidden="true">
-          <path d="M60 0 Q62 12 74 14 Q62 16 60 28 Q58 16 46 14 Q58 12 60 0 Z" fill="#D4A63A"/>
-          <path d="M49 34 L71 34 L112 110 L86 110 L60 62 L34 110 L8 110 Z" fill="#F6F3EC"/>
+      <span class="mark" aria-hidden="true">
+        <!-- New APEX logo: two overlapping triangular peaks, navy "A" + orange smaller peak -->
+        <svg viewBox="0 0 120 100" width="44" height="37" aria-hidden="true">
+          <polygon points="15,95 50,15 85,95" fill="#0E1A2B"/>
+          <polygon points="55,95 85,45 115,95" fill="#F56E2E"/>
         </svg>
       </span>
       <span>

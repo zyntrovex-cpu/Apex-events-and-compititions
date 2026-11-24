@@ -2,20 +2,16 @@
 -- APEX Events & Competitions — Hostinger import file
 -- Database: u599227834_apex_db · Domain: apexcompetitions.org
 --
--- HOW TO IMPORT (shared hosting / Hostinger):
---   1. Log into hPanel → Databases → Management → phpMyAdmin (Enter)
---   2. Click the database name "u599227834_apex_db" in the left sidebar
---   3. Click the "Import" tab at the top
---   4. Choose this file (apex_database_hostinger.sql) and click Go
---   5. All 30 tables + seed data will be created inside the database
+-- HOW TO IMPORT:
+--   1. hPanel → Databases → phpMyAdmin
+--   2. Click the database name "u599227834_apex_db"
+--   3. Import tab → choose this file → Go
 --
--- This build ships the site in MINIMAL mode: only Home, Competition,
--- About and Contact are visible. All other pages are preserved but
--- hidden. To re-enable them later, set site_mode='full' in the admins
--- Site Settings (or run: UPDATE site_settings SET setting_value='full'
--- WHERE setting_key='site_mode';).
+-- This build ships the site in MINIMAL mode (All Karachi Table Tennis
+-- League, four-item nav: Home / Competition / About / Contact).
+-- Set site_mode='full' in Site Settings to restore every other page.
 --
--- Default admin login after import:
+-- Default admin login:
 --   URL:      https://apexcompetitions.org/admin/
 --   Email:    admin@apexcompetitions.org
 --   Password: ApexAdmin!2026
@@ -570,8 +566,8 @@ INSERT INTO `site_settings` (`setting_key`,`setting_value`,`setting_type`,`setti
 ('site_tagline','Creating Experiences. Managing Competitions. Celebrating Excellence.','text','general','Tagline',2),
 ('site_description','APEX Events & Competitions plans and manages events and competitions for schools, colleges, universities and educational institutions — inter-school and inter-college competitions, sports championships, ceremonies, festivals, exhibitions and seminars.','textarea','general','Site description',3),
 ('contact_email','info@apexcompetitions.org','email','contact','Contact email',10),
-('contact_phone','+92 XXX XXXXXXX','text','contact','Contact phone',11),
-('contact_whatsapp','+92 XXX XXXXXXX','text','contact','WhatsApp number',12),
+('contact_phone','0320 2051914','text','contact','Contact phone',11),
+('contact_whatsapp','0325 2804916','text','contact','WhatsApp number',12),
 ('contact_address','[Street Address, City]','textarea','contact','Office address',13),
 ('contact_hours','Monday – Saturday, 9:00 am – 6:00 pm','text','contact','Office hours',14),
 ('site_url','https://apexcompetitions.org','url','general','Website URL',4),

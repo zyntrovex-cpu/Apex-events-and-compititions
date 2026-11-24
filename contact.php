@@ -10,6 +10,10 @@ include __DIR__ . '/includes/header.php';
 
 $errors = errors_get();
 $ok = flash_get('contact_ok');
+
+// Hard-coded contact numbers from the PDF banner (0320 2051914 / 0325 2804916)
+$phone1 = '0320 2051914';
+$phone2 = '0325 2804916';
 ?>
 
 <section class="hero">
@@ -59,7 +63,7 @@ $ok = flash_get('contact_ok');
             </select>
           </label>
           <label class="f full"><span>Subject</span>
-            <input type="text" name="subject" value="<?= e(old('subject', $prefillSubject)) ?>" placeholder="e.g. University League registration, Sponsorship, Finals Day">
+            <input type="text" name="subject" value="<?= e(old('subject', $prefillSubject)) ?>" placeholder="e.g. Registration form, Sponsorship, Finals Day">
           </label>
           <label class="f full" data-req><span>Message <span class="req">*</span></span>
             <textarea name="message" required placeholder="Tell us how we can help…"><?= e(old('message')) ?></textarea>
@@ -83,18 +87,18 @@ $ok = flash_get('contact_ok');
       <div class="card card-navy" style="padding:28px">
         <p class="eyebrow">CONTACT DETAILS</p>
         <ul style="list-style:none;padding:0;margin:14px 0 0;display:grid;gap:14px;color:var(--mist);font-size:14.5px;line-height:1.6">
-          <?php if (setting('contact_phone')): ?>
-            <li><b style="color:var(--ivory);display:block;margin-bottom:2px">Phone</b><a href="tel:<?= e(preg_replace('/[^0-9+]/','', setting('contact_phone'))) ?>" style="color:var(--gold)"><?= e(setting('contact_phone')) ?></a></li>
-          <?php endif; ?>
-          <?php if (setting('contact_whatsapp')): ?>
-            <li><b style="color:var(--ivory);display:block;margin-bottom:2px">WhatsApp</b><a href="https://wa.me/<?= e(preg_replace('/[^0-9]/','', setting('contact_whatsapp'))) ?>" target="_blank" rel="noopener" style="color:var(--gold)"><?= e(setting('contact_whatsapp')) ?></a></li>
-          <?php endif; ?>
+          <li>
+            <b style="color:var(--ivory);display:block;margin-bottom:4px">WhatsApp &amp; Phone</b>
+            <a href="https://wa.me/923202051914" target="_blank" rel="noopener" style="color:var(--orange);display:block"><?= e($phone1) ?></a>
+            <a href="https://wa.me/923252804916" target="_blank" rel="noopener" style="color:var(--orange);display:block;margin-top:2px"><?= e($phone2) ?></a>
+          </li>
           <?php if (setting('contact_email')): ?>
-            <li><b style="color:var(--ivory);display:block;margin-bottom:2px">Email</b><a href="mailto:<?= e(setting('contact_email')) ?>" style="color:var(--gold)"><?= e(setting('contact_email')) ?></a></li>
+            <li><b style="color:var(--ivory);display:block;margin-bottom:2px">Email</b><a href="mailto:<?= e(setting('contact_email')) ?>" style="color:var(--orange)"><?= e(setting('contact_email')) ?></a></li>
           <?php endif; ?>
           <?php if (setting('contact_hours')): ?>
             <li><b style="color:var(--ivory);display:block;margin-bottom:2px">Hours</b><?= e(setting('contact_hours')) ?></li>
           <?php endif; ?>
+          <li><b style="color:var(--ivory);display:block;margin-bottom:2px">Website</b><a href="<?= e(setting('site_url','https://apexcompetitions.org')) ?>" style="color:var(--orange)"><?= e(preg_replace('~^https?://~','', setting('site_url','apexcompetitions.org'))) ?></a></li>
         </ul>
       </div>
 
@@ -102,8 +106,8 @@ $ok = flash_get('contact_ok');
         <p class="eyebrow dark">QUICK LINKS</p>
         <ul style="list-style:none;padding:0;margin:10px 0 0;display:grid;gap:10px;font-size:14.5px">
           <li>→ <a href="competitions.php">League details</a></li>
-          <li>→ <a href="register-university.php">University League registration</a></li>
-          <li>→ <a href="register-college.php">College League registration</a></li>
+          <li>→ <a href="competitions.php#register">Download registration form</a></li>
+          <li>→ <a href="about.php">About APEX</a></li>
         </ul>
       </div>
     </aside>
