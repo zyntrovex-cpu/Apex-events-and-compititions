@@ -164,30 +164,103 @@ p{margin:0 0 1em}
 .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
 .hero-dates{color:var(--yellow-accent);font-size:17px;margin:4px 0 14px;letter-spacing:.02em}
 
-/* Hero split: text + poster side by side */
-.hero-split-inner{
+/* ---------------------------------------------------------------------
+   HERO · league (recreated banner — native HTML/SVG, no photo asset)
+   --------------------------------------------------------------------- */
+.hero-league{
+  position:relative;overflow:hidden;
+  background:
+    radial-gradient(1200px 500px at 20% 10%, rgba(37,99,235,.12), transparent 60%),
+    radial-gradient(900px 500px at 85% 85%, rgba(245,110,46,.08), transparent 60%),
+    linear-gradient(160deg, #0A1422 0%, #0E1A2B 45%, #15253B 100%);
+  color:var(--ivory);
+}
+.hero-league-inner{
   max-width:var(--max);margin:0 auto;
-  padding:clamp(44px,6vw,80px) clamp(16px,3vw,24px);
-  display:grid;grid-template-columns:1.1fr .9fr;
-  gap:clamp(24px,4vw,48px);align-items:center;
+  padding:clamp(40px,6vw,72px) clamp(16px,3vw,28px) clamp(48px,7vw,80px);
   position:relative;z-index:1;
 }
-.hero-split-text h1{font-size:clamp(32px,4.2vw,52px);line-height:1.08;margin:12px 0 14px}
-.hero-split-image{display:flex;align-items:center;justify-content:center}
-.hero-split-image img{
-  width:100%;max-width:520px;height:auto;
-  border-radius:18px;
-  box-shadow:0 30px 80px rgba(0,0,0,.45), 0 0 0 1px rgba(255,255,255,.06);
-  display:block;
+
+/* Corner accent strips evoking the poster's diagonal trim */
+.hero-accent{position:absolute;pointer-events:none;z-index:0}
+.hero-accent-tl{top:-30px;left:-30px;width:220px;height:220px;background:
+  linear-gradient(135deg,transparent 46%, var(--yellow-accent) 46%, var(--yellow-accent) 49%, transparent 49%, transparent 54%, var(--orange) 54%, var(--orange) 57%, transparent 57%);
+  opacity:.55;transform:rotate(-2deg)}
+.hero-accent-br{bottom:-30px;right:-30px;width:260px;height:260px;background:
+  linear-gradient(135deg,transparent 46%, var(--yellow-accent) 46%, var(--yellow-accent) 49%, transparent 49%, transparent 54%, var(--orange) 54%, var(--orange) 57%, transparent 57%);
+  opacity:.55;transform:rotate(178deg)}
+
+.hero-league-top{
+  display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;
+  margin-bottom:26px;
 }
-@media (max-width:860px){
-  .hero-split-inner{grid-template-columns:1fr;gap:28px}
-  .hero-split-image{order:-1;margin:0 auto}
-  .hero-split-image img{max-width:380px}
+.hero-sub-leagues{
+  font-family:Archivo,sans-serif;font-stretch:112%;font-weight:700;
+  letter-spacing:.22em;font-size:13px;margin:0;
+  color:var(--yellow-accent);
 }
-@media (max-width:480px){
-  .hero-split-image img{max-width:100%;border-radius:14px}
-  .hero-dates{font-size:15px}
+
+.hero-league-grid{
+  display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);
+  gap:clamp(24px,4vw,56px);align-items:center;
+}
+.hero-league-title{
+  font-family:Archivo,sans-serif;font-stretch:118%;font-weight:900;
+  font-size:clamp(40px,6vw,76px);line-height:.98;
+  margin:0 0 18px;letter-spacing:-0.005em;
+  display:flex;flex-direction:column;gap:2px;
+}
+.hero-league-title span{display:block}
+.hero-league-title .accent-orange{
+  color:var(--yellow-accent);
+  background:linear-gradient(90deg,var(--yellow-accent),var(--orange));
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+}
+.hero-league-tagline{
+  color:var(--mist);font-size:clamp(16px,1.6vw,19px);
+  margin:0 0 22px;line-height:1.5;
+}
+.hero-league-tagline b{color:var(--orange)}
+
+/* Two date callout tiles, inline with the headline */
+.hero-callouts{
+  display:grid;grid-template-columns:1fr 1fr;gap:14px;
+  margin:0 0 24px;
+}
+.hero-callout{
+  background:rgba(14,26,43,.55);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:14px;padding:16px 18px;
+  backdrop-filter:blur(2px);
+  -webkit-backdrop-filter:blur(2px);
+}
+.hero-callout .eyebrow{margin:0 0 6px}
+.hero-callout-date{
+  font-family:Archivo,sans-serif;font-stretch:115%;font-weight:800;
+  font-size:clamp(18px,2vw,22px);margin:0 0 2px;color:var(--ivory);line-height:1.1;
+}
+.hero-callout-sub{color:var(--mist);font-size:13px;margin:0}
+
+/* Illustration lockup */
+.hero-league-art{
+  display:flex;align-items:center;justify-content:center;
+  min-height:320px;
+}
+.hero-league-art svg{
+  width:100%;max-width:460px;height:auto;display:block;
+  filter:drop-shadow(0 30px 60px rgba(0,0,0,.45));
+}
+
+@media (max-width:980px){
+  .hero-league-grid{grid-template-columns:1fr;gap:28px}
+  .hero-league-art{order:-1;min-height:0;max-width:420px;margin:0 auto}
+  .hero-league-title{font-size:clamp(36px,8vw,56px)}
+  .hero-callouts{grid-template-columns:1fr 1fr}
+}
+@media (max-width:520px){
+  .hero-callouts{grid-template-columns:1fr}
+  .hero-sub-leagues{font-size:12px;letter-spacing:.18em}
+  .hero-league-title{font-size:clamp(32px,9vw,46px)}
 }
 
 /* CEO message card */
